@@ -64,9 +64,9 @@ class DataProcessingSheet(QWidget):
     def calculate_and_display_result(self):
         last_expenses_sum = sum(float(entry.text()) if entry.text() else 0 for entry in self.expenses_tab.expense_entries.values())
         last_incomes_sum = sum(float(entry.text()) if entry.text() else 0 for entry in self.incomes_tab.income_entries.values())
-
+    
         result = last_incomes_sum - last_expenses_sum
-
+    
         # Set the result label and color based on the conditions
         if result >= 1000:
             color = QColor(0, 128, 0)  # Bold green
@@ -78,9 +78,13 @@ class DataProcessingSheet(QWidget):
             color = QColor(255, 0, 0)  # Bold red
         else:
             color = QColor(0, 0, 0)  # Default color
-
+    
         self.result_display.setText(f"Result: {result:.2f}")
         self.result_display.setStyleSheet(f"color: rgb({color.red()}, {color.green()}, {color.blue()}); font-weight: {'bold' if abs(result) >= 1000 else 'normal'}")
+    
+        # Close Matplotlib figures to avoid the RuntimeError
+        plt.close('all')
+    
 
     def populate_legend_table(self):
         legend_data = [
