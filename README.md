@@ -40,6 +40,8 @@ Home Economics GUI is a PyQt5-based application that helps users manage and visu
 
 3. Run the `main.py` script to launch the Home Economics GUI.
 
+![GUI_homeEconomics_example](https://github.com/Printempo/HomeEconomicsGUI/assets/97199103/e907084c-5173-4122-b64f-690d950d3201)
+
 Feel free to customize the expense and income categories based on your specific financial needs.
 
 **Note:** Make sure to adjust file paths and organize your project structure as needed.
